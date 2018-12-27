@@ -125,11 +125,11 @@
     margin-top: -2px;
     margin-right 10px;
     &.icon-success
-      background-image url("./icon/success.png")
+      background-image url("../icon/success.png")
     &.icon-error
-      background-image url("./icon/error.png")
+      background-image url("../icon/error.png")
     &.icon-warning
-      background-image url("./icon/warning.png")
+      background-image url("../icon/warning.png")
 
   .slide-fade-enter-active {
     transition: all .3s ease;
