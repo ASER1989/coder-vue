@@ -4,18 +4,21 @@ import Main from './main.vue';
 let MsgConstructor = Vue.extend(Main);
 let instance, seed = 1;
 
-const Msg = function (options) {
+const Msg = function (options, callback) {
     if (Vue.prototype.$isServer) return;
     options = options || {};
-    if (typeof options === 'string') {
-        options = {
-            txt: options
-        };
-    }
+    options = typeof options === 'string' ? {txt: options} : options;
+    // if (typeof options === 'string') {
+    //     options = {
+    //         txt: options
+    //     };
+    // }
+
+    let onClose = typeof callback == "function" ? callback : options.onClose;
 
     instance && instance.vm.visible && instance.close();
 
-    let onClose = options.onClose;
+
     let id = 'message_' + seed++;
 
     options.onClose = function () {
